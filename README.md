@@ -1,14 +1,16 @@
 Based on Mike Holden's great idea (https://github.com/meholden/duetDisplay), I have made the following changes:
 
-a) Built using platformIO
-b) Built for maple mini (original)
-c) Additional page/screen for navigating around the printer (for manual bed levelling)
-d) Sped up some of the logic
-e) Refactored some code based on the updated arduinoJson library
+1. Built using platformIO
+2. Built for maple mini (original)
+3. Additional page/screen for navigating around the printer (for manual bed levelling)
+4. Sped up some of the logic
+5. Refactored some code based on the updated arduinoJson library
 
 Why did I choose the maple mini - basically I had a lot of trouble getting softwareserial to run correctly with the nextion screen. The maple mini has at least 3 native serial ports which eliminates the need for software serial completely. It is also a 3.3V logic board which works well with the duet board and the nextion screen.
 
 Note: For both Mike's and my version, we use Dan Nixon's nextion library (https://github.com/DanNixon/NeoNextion)
+
+Read below for description of hookup, wiring and duet config settings
 
 -------------------------
 -- Mike's README below --
