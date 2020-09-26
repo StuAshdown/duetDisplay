@@ -247,27 +247,50 @@ void callbackNav(NextionEventType type, INextionTouchable *widget)
 {
   if (type == NEX_EVENT_PUSH)
   {
-      serDebug.println(widget->getComponentID());
+      //serDebug.println(widget->getComponentID());
       switch (widget->getComponentID()) 
       {
         case 3: //xy1 - 10,10
           textBuffer = "G1 X10 Y10 F800"; 
           serDuet.println(textBuffer);
+          serDebug.println(textBuffer);
           break;
         case 4: //xy2 - 10,290
           textBuffer = "G1 X10 Y290 F800"; 
           serDuet.println(textBuffer);
+          serDebug.println(textBuffer);
           break;
         case 5: //xy3 - 290,10
           textBuffer = "G1 X290 Y10 F800"; 
           serDuet.println(textBuffer);
+          serDebug.println(textBuffer);
           break;
         case 6: //xy4 - 290,290
           textBuffer = "G1 X290 Y290 F800"; 
           serDuet.println(textBuffer);
+          serDebug.println(textBuffer);
           break;
         case 9: //xy4 - 290,290
           textBuffer = "G1 X150 Y150 F800"; 
+          serDuet.println(textBuffer);
+          serDebug.println(textBuffer);
+          break;
+        case 7: //z up 0.05mm
+          textBuffer = "G91";  
+          serDuet.println(textBuffer);
+          textBuffer = "G1 Z0.05 F800";
+          serDuet.println(textBuffer);
+          serDebug.println(textBuffer);
+          textBuffer = "G90";
+          serDuet.println(textBuffer);
+          break;
+        case 8: //z down 0.05mm
+          textBuffer = "G91";  
+          serDuet.println(textBuffer);
+          textBuffer = "G1 Z-0.05 F800";
+          serDuet.println(textBuffer);
+          serDebug.println(textBuffer);
+          textBuffer = "G90";
           serDuet.println(textBuffer);
           break;
 
@@ -314,6 +337,8 @@ void setup() {
   b_navXY3.attachCallback(&callbackNav);
   b_navXY4.attachCallback(&callbackNav);
   b_navCen.attachCallback(&callbackNav);
+  b_zp5.attachCallback(&callbackNav);
+  b_zm5.attachCallback(&callbackNav);
   serDebug.println("Init Done!");
 }
 
